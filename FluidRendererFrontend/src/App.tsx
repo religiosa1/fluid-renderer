@@ -18,9 +18,7 @@ interface SubmitData {
 }
 
 interface SubmitResponse {
-  success: boolean;
-  data: string | null;
-  error: string | null;
+  data: string;
 }
 
 function App() {
@@ -37,6 +35,9 @@ function App() {
   const [template] = createResource(submitData, async (submitPayload) => {
     resetErrorBoundaries();
     const ctx = JSON.parse(submitPayload.context);
+    if (!ctx || typeof ctx !== "object" || Array.isArray(ctx)) {
+      throw new TypeError("Context must be a JSON object");
+    }
     const response = await fetch("/api/render", {
       method: "POST",
       headers: {
@@ -48,8 +49,8 @@ function App() {
       throw new Error(`HTTP ${response.status}: ${response.statusText}`);
     }
     const data = (await response.json()) as SubmitResponse;
-    if (data.success != true) {
-      throw new Error("Error response:" + (data.error ?? "unknown error"));
+    if (typeof data.data != "string") {
+      throw new Error("Unexpected response.");
     }
     return data.data;
   });
