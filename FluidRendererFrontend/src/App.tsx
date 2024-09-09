@@ -59,6 +59,12 @@ function App() {
     <>
       <h1>Render Fluid template</h1>
 
+      <p>
+        A primitive web app to render{" "}
+        <a href="https://github.com/sebastienros/fluid">Fluid</a> templates in
+        .NET with the provided JSON context.
+      </p>
+
       <form onSubmit={handleSubmit}>
         <Columns>
           <Input
