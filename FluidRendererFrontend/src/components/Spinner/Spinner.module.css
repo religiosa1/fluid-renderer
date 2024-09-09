@@ -1,0 +1,5 @@
+.spinner {
+  background: no-repeat url("./90-ring-with-bg.svg") center top / 3em;
+  padding-top: 4em;
+  text-align: center;
+}

@@ -1,0 +1,14 @@
+.textarea {
+  display: block;
+  width: 100%;
+  min-height: 5em;
+  min-height: 8lh;
+  border: 1px solid var(--clr-border);
+  border-radius: var(--border-radius);
+  resize: vertical;
+  box-sizing: border-box;
+}
+
+.formGroup {
+  margin-block: 1em;
+}

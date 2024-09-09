@@ -1,0 +1,7 @@
+.output {
+  border: 1px solid var(--clr-border);
+  border-radius: var(--border-radius);
+  background: #eee;
+  padding: 1em;
+  display: block;
+}
