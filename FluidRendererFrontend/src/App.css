@@ -1,8 +1,39 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
 #root {
+  box-sizing: border-box;
   max-width: 1000px;
+  min-height: 100vh;
+  min-height: 100dvh;
   margin: 0 auto;
   padding: 2rem;
 
   --clr-border: gray;
   --border-radius: 3px;
+}
+
+h1 {
+  margin-top: 0;
+}
+
+.app-layout {
+  display: grid;
+  grid-template-areas:
+    "header"
+    "main"
+    "footer";
+  grid-template-rows: auto 1fr auto;
+}
+
+.app-layout__header {
+  grid-area: header;
+}
+.app-layout__main {
+  grid-area: main;
+}
+.app-layout__footer {
+  grid-area: footer;
 }

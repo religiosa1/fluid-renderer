@@ -6,6 +6,28 @@ templates in .NET with the provided JSON context.
 Gives you two texareas, one for template, one for context (provided as a JSON
 object) and the "render" button.
 
+The project requires .NET8 SDK and node.js 20.10.0 or higher.
+
+## Local development
+
+If you're using vscode you can use tasks prepared in this repo: `backend dev` 
+and `frontend dev`.
+
+Otherwise you can manually run:
+
+For frontend:
+```sh
+cd FluidRendererFrontend
+npm i # only required once
+npm run dev
+```
+
+For backend:
+```sh
+cd FluidRendererApi
+dotnet watch run -dev
+```
+
 ## Manual build
 
 To build the frontend:

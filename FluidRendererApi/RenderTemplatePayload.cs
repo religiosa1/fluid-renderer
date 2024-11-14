@@ -1,5 +1,7 @@
+using System.Text.Json.Nodes;
+
 class RenderTemplatePayload
 {
 	public required string Template { get; set; }
-	public Dictionary<string, object> Context { get; set; } = new();
+	public JsonNode? Context { get; set; }
 }

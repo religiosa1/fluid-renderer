@@ -1,0 +1,28 @@
+{
+  // Use IntelliSense to learn about possible attributes.
+  // Hover to view descriptions of existing attributes.
+  // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Debug Back",
+      "type": "coreclr",
+      "request": "launch",
+      "preLaunchTask": "backend build",
+      "program": "${workspaceFolder}/FluidRendererApi/bin/Debug/net8.0/FluidRendererApi.dll",
+      "args": ["-dev"],
+      "cwd": "${workspaceFolder}/FluidRendererApi",
+      "stopAtEntry": false,
+      "serverReadyAction": {
+        "action": "openExternally",
+        "pattern": "\\bNow listening on:\\s+(https?://\\S+)"
+      },
+      "env": {
+        "ASPNETCORE_ENVIRONMENT": "local"
+      }
+      // "sourceFileMap": {
+      //   "/Views": "${workspaceFolder}/Views"
+      // }
+    }
+	]
+}

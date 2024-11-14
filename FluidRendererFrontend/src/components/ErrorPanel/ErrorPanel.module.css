@@ -5,3 +5,7 @@
   margin-block: 1em;
   border-radius: var(--border-radius);
 }
+
+.errorDetails {
+  margin-top: 0.5em;
+}
