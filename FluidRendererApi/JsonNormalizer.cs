@@ -10,7 +10,15 @@ public static class JsonNormalizer
 	{
 		JsonObject jsonObject => ConvertJsonNodeToDictionary(jsonObject),
 		JsonArray jsonArray => jsonArray.Select(Normalize).ToList(),
-		JsonValue jsonValue => jsonValue.GetValue<object?>(),
+		JsonValue jsonValue => jsonValue.GetValueKind() switch
+		{
+			System.Text.Json.JsonValueKind.String => jsonValue.ToString(),
+			System.Text.Json.JsonValueKind.True => true,
+			System.Text.Json.JsonValueKind.False => false,
+			System.Text.Json.JsonValueKind.Null => null,
+			System.Text.Json.JsonValueKind.Undefined => null,
+			_ => jsonValue,
+		},
 		_ => null
 	};
 

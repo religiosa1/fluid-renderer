@@ -9,7 +9,6 @@ export default defineConfig({
         target: "http://localhost:5208",
         changeOrigin: true,
         secure: false,
-        rewrite: () => "/",
       },
     },
   },

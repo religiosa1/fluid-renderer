@@ -36,4 +36,5 @@ h1 {
 }
 .app-layout__footer {
   grid-area: footer;
+  margin-top: 1em;
 }

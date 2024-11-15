@@ -45,7 +45,7 @@ Then in root dir:
 ```sh
 cd ../FluidRendererApi
 dotnet publish
-cp -r FluidRendererApi/wwwroot publish/wwwroot
+cp -r ./wwwroot ../publish/wwwroot
 ```
 
 To launch the app, run the publish dir (change the port in urls to the one you

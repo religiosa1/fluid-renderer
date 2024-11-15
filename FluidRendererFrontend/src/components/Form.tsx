@@ -5,6 +5,7 @@ import {
   createResource,
   resetErrorBoundaries,
 } from "solid-js";
+import JSON5 from "json5";
 
 import { Output } from "./Output";
 import { Input } from "./Input";
@@ -35,9 +36,9 @@ export function Form() {
 
   const [template] = createResource(submitData, async (submitPayload) => {
     resetErrorBoundaries();
-    const ctx = JSON.parse(submitPayload.context);
+    const ctx = JSON5.parse(submitPayload.context);
     if (!ctx || typeof ctx !== "object" || Array.isArray(ctx)) {
-      throw new TypeError("Context must be a JSON object");
+      throw new TypeError("Context must be a JSON5 object");
     }
     const response = await fetch("/api/render", {
       method: "POST",
@@ -68,7 +69,7 @@ export function Form() {
           <Input
             label="Context"
             name="context"
-            help="A JSON object, to be used as a context value for the template"
+            help="A JSON5 object, to be used as a context value for the template"
           />
         </Columns>
 
