@@ -5,6 +5,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## Unreleased
 
+## [0.2.1] - 2024-11-21
+### Added
+- Version header in the backend responses.
+
 ## [0.2.0] - 2024-11-15
 ## Added
 - JSON5 support for the context input

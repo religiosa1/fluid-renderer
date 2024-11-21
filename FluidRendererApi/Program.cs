@@ -1,4 +1,9 @@
 using Fluid;
+using System.Reflection;
+
+var version = Assembly.GetExecutingAssembly()
+	.GetCustomAttribute<AssemblyInformationalVersionAttribute>()
+	?.InformationalVersion ?? string.Empty;
 
 var builder = WebApplication.CreateBuilder(args);
 var app = builder.Build();
@@ -6,10 +11,12 @@ var app = builder.Build();
 app.UseDefaultFiles();
 app.UseStaticFiles();
 
-app.MapPost("/api/render", (RenderTemplatePayload pl) =>
+app.MapPost("/api/render", (RenderTemplatePayload pl, HttpResponse response) =>
 {
 	try
 	{
+		response.Headers.Append("X-Version", version);
+
 		var parser = new FluidParser();
 		if (!parser.TryParse(pl.Template, out var template, out var error))
 		{
